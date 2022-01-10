@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+      - export LC_ALL="en_US.utf8"
+  build:
+    commands:
+      - echo Check started on `date`
+      - ./check_agent.sh
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - deploy/*
+  discard-paths: yes
+
