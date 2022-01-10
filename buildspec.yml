@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+      - export LC_ALL="en_US.utf8"
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean package -DskipTests
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/spring-petclinic-1.5.1.jar
+    - startup_8081.sh
+    - check_vul.sh
+    - startup_8081_for_test.sh
+    - agent_download.sh
+    - testspec.yml
+    - appspec.yml
+    - deploy/*
+  discard-paths: yes
+
