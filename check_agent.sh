@@ -11,7 +11,7 @@ mvn versions:use-latest-versions -f ${AGENT_POM_FILE} > /dev/null 2>&1
 if [ ! -e ${BACKUP_POM_FILE_NAME} ]; then
     exit 1
 fi
-mv ${BACKUP_POM_FILE_NAME} pom_agent_${CURRENT_VERSION}.xml
+mv "${BACKUP_POM_FILE_NAME}" "pom_agent_${CURRENT_VERSION}.xml"
 NEWER_VERSION=`mvn -f ${AGENT_POM_FILE} dependency:list | grep contrast | awk -F: '{print $4}'`
 
 echo "${CURRENT_VERSION} -> ${NEWER_VERSION}"
