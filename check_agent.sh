@@ -3,7 +3,8 @@
 AGENT_POM_FILE='pom_agent.xml'
 BACKUP_POM_FILE_NAME='pom_agent.xml.versionsBackup'
 
-CURRENT_VERSION=`mvn -f ${AGENT_POM_FILE} dependency:list | grep contrast | awk -F: '{print $4}'`
+CURRENT_VERSION=`mvn -f ${AGENT_POM_FILE} dependency:list | grep contrast | awk -F: "{print $4}"`
+echo ${CURRENT_VERSION}
 
 #mvn versions:display-dependency-updates -f ${AGENT_POM_FILE}
 rm -f ${BACKUP_POM_FILE_NAME}
