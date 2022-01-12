@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  exported-variables:
+    - AGENT_OLD_VERSION
+    - AGENT_NEW_VERSION
 phases:
   install:
     runtime-versions:
@@ -19,7 +23,6 @@ phases:
       - ./push_pomfile.sh
 artifacts:
   files:
-    - deploy/*
     - target/dependency/contrast-agent-*.jar
   discard-paths: yes
 
