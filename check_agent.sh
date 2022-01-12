@@ -15,6 +15,8 @@ mv ${BACKUP_POM_FILE_NAME} pom_agent_${CURRENT_VERSION}.xml
 NEWER_VERSION=`mvn -f ${AGENT_POM_FILE} dependency:list | grep contrast | awk -F: '{print $4}'`
 
 echo "${CURRENT_VERSION} -> ${NEWER_VERSION}"
+export AGENT_OLD_VERSION=${CURRENT_VERSION}
+export AGENT_NEW_VERSION=${NEWER_VERSION}
 
 exit 0
 

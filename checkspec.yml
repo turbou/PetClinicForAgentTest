@@ -6,17 +6,20 @@ phases:
       java: corretto8
   pre_build:
     commands:
-      - echo Nothing to do in the pre_build phase...
+      - echo Check for agent updates...
       - export LC_ALL="en_US.utf8"
+      - ./check_agent.sh
   build:
     commands:
-      - echo Check started on `date`
-      - ./check_agent.sh
+      - echo Download the agent...
+      - ./download_agent.sh
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Push the updated pom_agent.xml...
+      - ./push_pomfile.sh
 artifacts:
   files:
     - deploy/*
+    - target/dependency/contrast-agent-*.jar
   discard-paths: yes
 
