@@ -1,9 +1,13 @@
 version: 0.2
 
 env:
+  variables:
+    - AGENT_OLD_VERSION
+    - AGENT_NEW_VERSION
   exported-variables:
     - AGENT_OLD_VERSION
     - AGENT_NEW_VERSION
+  git-credential-helper: yes
 phases:
   install:
     runtime-versions:
